@@ -1,0 +1,33 @@
+/* Color Variables */
+:root{
+    --black: #000000;
+    /* --bordeaux: #9F0908;
+    --white: #ffffff;
+    --grey: #675E54;
+    --grey-darker: #0A141E; */
+
+    /* radius */
+    --b_rad: 1rem;
+}
+
+/* General Styling */
+*{
+    font-size:16px;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html{
+    scroll-behavior: smooth;
+    background: var(--white);
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: var(--black);
+}
