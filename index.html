@@ -3,14 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./styles/standard.css"> 
+    <title>Bestell App</title>
+    <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.ico">
+    <link rel="stylesheet" href="./styles/standard.css">
+    <link rel="stylesheet" href="./styles/font-face.css">
     <link rel="stylesheet" href="./style.css">
+    <script src="./scripts/menu.js"></script>
+    <script src="./scripts/templates.js"></script>
 </head>
-<body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+<body onload="init()">
+    <header>
+        <div class="wrapper">
+            <div class="logo">
+                <img src="./assets/icons/logo.svg" alt="Logo of Bestell App">
+            </div>
+            <h1>Speisenkarte</h1>
+            <div class="navBar">
+                <img src="./assets/icons/hamburger-nav.svg" alt="Navigation">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <section id="content">
+                <section id="menuArea">
+                    <section id="local"></section>
+                    <ul class="menuCategory"></ul>
+                    <div id="menuItems"></div>
+                </section>
+            </section>
+            <section id="cart" class="empty">
+                <h2>Basket</h2>
+                <span class="emptyBasket"><img src="./assets/icons/empty-basket.svg" alt="Empty Basekt"></span>
+                <div id="basket"></div>
+                <div id="cartBottom">
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="wrapper">
+        </div>
+    </footer>
 </body>
 <script src="./script.js"></script>
 </html>
