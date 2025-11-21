@@ -147,7 +147,7 @@ let menu = [
 let local = [
   {
     "localName": "Pizza Hombre",
-    "localLogo": "./assets/img/collection/pizzas.jpg",
+    "localLogo": "./assets/img/pizzeria_hombre_logo.png",
     "localAddress": "Platz der Republik, 10557 Berlin",
     "localRating": "4.3 (4.100+)",
     "localMinOrderValue": 15.00,

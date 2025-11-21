@@ -5,16 +5,20 @@ function categoryTemplate(catIndex){
 function menuTemplate(i, j){
     return `
     <article class="menuItem">
-        <div class="menuDesc">
-            <h3>${menu[i].items[j].name}</h3>
-            <div class="price">${menu[i].items[j].price.toFixed(2)}</div>
-            <div class="description">${menu[i].items[j].description}</div>
-        </div>
-        <div class="menuImg">
-            <img src="${menu[i].items[j].img}">
-        </div>
-        <div class="interactive">
-            <button class="addToCart" onClick="addToCart(${i}, ${j})">Add to Cart</button>
+        <h3>${menu[i].items[j].name}</h3>
+        <div class="menuInformation">
+            <div class="menuDetails">
+                <div class="menuImg">
+                    <img src="${menu[i].items[j].img}">
+                </div>
+                <div class="menuDesc">
+                    <div class="price"></div>
+                    <div class="description">${menu[i].items[j].description}</div>
+                </div>
+            </div>
+            <div class="interactive">
+                <button class="addToCart" onClick="addToCart(${i}, ${j})">Add to Cart (${menu[i].items[j].price.toFixed(2)} €)</button>
+            </div>
         </div>
     </article>
     `
@@ -41,12 +45,16 @@ function cartTemplate(i){
 
 function localTemplate(i){
     return `
-        <div class="localLogo"><img src="${local[i].localLogo}"></div>
+    <div class="localLogo"><img src="${local[i].localLogo}"></div>
+    <div class="localInformation">
         <div class="localName">
             <div class="localName">${local[i].localName}</div>
-            <div class="localAddress">${local[i].localAddress}</div>
-            <div class="localRating">${local[i].localRating}</div>
+            <!--<div class="localAddress"><img src="./assets/icons/local.svg" alt="Local Icon">${local[i].localAddress}</div>-->
+            <div class="localRating"><img src="./assets/icons/star.svg" alt="Rating Icon">${local[i].localRating}</div>
+            <div class="deliveryMov"><img src="./assets/icons/basket.svg" alt="min. Order Icon">min. Order Value: ${local[i].localMinOrderValue.toFixed(2)} €</div>
+            <div class="deliveryCost"><img src="./assets/icons/truck.svg" alt="Delivery & Service Icon">Delivery & Service: ${local[i].localDeliveryCost.toFixed(2)} €</div>
         </div>
+    </div>
     `
 }
 
@@ -57,6 +65,6 @@ function finalCartTemplate(){
             <span class="serviceFee">Delivery & Service: <span id="deliveryCost">${deliveryCost.toFixed(2)} €</span></span>
         </div>
         <div class="cartTotal">Total: <span id="subTotal">${totalPrice.toFixed(2)} €</span></div>
-        <button id="cartTotal">Checkout (${totalPrice.toFixed(2)}) €</button>
+        <button id="cartTotal" onclick="checkoutEvent()">Checkout (${totalPrice.toFixed(2)}) €</button>
     `
 }
