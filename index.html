@@ -33,17 +33,30 @@
                 </section>
             </section>
             <section id="cart" class="empty">
+                <button id="mobileCartButton"><img src="./assets/icons/basket.svg" alt="Mobile Cart"><span id="cartItemCounter"></span></button>
                 <div class="cartInner">
                     <h2>Basket</h2>
-                    <span class="emptyBasket"><img src="./assets/icons/empty-basket.svg" alt="Empty Basekt"></span>
+                    <span class="emptyBasket"><img src="./assets/icons/empty-basket.svg" alt="Empty Basket"></span>
                     <div id="basket"></div>
                     <div id="cartBottom"></div>
                 </div>
             </section>
+            <dialog id="afterOrderMessage">
+                <button type="submit" id="closeDialog"><img src="./assets/icons/remove.svg" alt="remove Item"></button>
+                <h3>Thank you for your order!</h3>
+                <p>We’re getting everything ready and will notify you once it’s on the way.</p>
+            </dialog>
         </div>
     </main>
     <footer>
         <div class="wrapper">
+            <div id="footerContent">
+                <ul class="">
+                    <li><a href="">Impressum</a></li>
+                    <li><a href="">AGB</a></li>
+                    <li><a href="">About</a></li>
+                </ul>
+            </div>
         </div>
     </footer>
 </body>

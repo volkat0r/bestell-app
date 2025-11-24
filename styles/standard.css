@@ -2,14 +2,15 @@
 :root{
     --black: #000000;
     --white: #ffffff;
+    --grey-lightest: #efefef;
     --grey-light: #cdcdcd;
     --grey: #7c7c7c;
 
-    --peach-red: #D91656;
+    --peach-orange-red: #d35100;
     --peach-orange: #EB5B00;
     --blue-dark: #273F4F;
 
-    --peach-gradiant: linear-gradient(180deg,#ff8234 0%, #ff7b29 100%);
+    --peach-gradiant: linear-gradient(180deg,#ff8234 0%, #d35100 100%);
     --basic-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 
     /* radius */
@@ -95,11 +96,6 @@ div.wrapper {
 }
 
 button{
-    border: 0;
-    background: none;
-}
-
-footer{
     border: 0;
     background: none;
 }

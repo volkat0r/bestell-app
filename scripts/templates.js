@@ -26,7 +26,7 @@ function menuTemplate(i, j){
 
 function cartTemplate(i){
     return `
-    <article class="cartItem">
+    <article class="cartItem" data-index="${i}">
         <h3>${cartItemList[i].name}</h3>
         <div class="cartDetails">
             <div class="qty">
