@@ -33,10 +33,10 @@ function renderMenuItems(){
     const menuCatRef = document.querySelector("ul.menuCategory");
     menuCatRef.innerHTML = "";
     menuItemListRef.innerHTML = "";
-    for(let i = 0; i < menu.length; i++){
-        menuCatRef.innerHTML += categoryTemplate(i);
-        for(let j = 0; j < menu[i].items.length; j++){
-            menuItemListRef.innerHTML += menuTemplate(i, j);
+    for(let catIndex = 0; catIndex < menu.length; catIndex++){
+        menuCatRef.innerHTML += categoryTemplate(catIndex);
+        for(let menuIndex = 0; menuIndex < menu[catIndex].items.length; menuIndex++){
+            menuItemListRef.innerHTML += menuTemplate(catIndex, menuIndex);
         }
     }
 }
@@ -45,9 +45,9 @@ function renderMenuItems(){
 // #region Render Local Information
 function renderLocal(){
     const localRef = document.getElementById("local");
-    for(let i = 0; i < local.length; i++){
-        localRef.innerHTML += localTemplate(i);
-        deliveryCost = local[i].localDeliveryCost;
+    for(let localIndex = 0; localIndex < local.length; localIndex++){
+        localRef.innerHTML += localTemplate(localIndex);
+        deliveryCost = local[localIndex].localDeliveryCost;
     }
 }
 // #endregion
@@ -56,8 +56,8 @@ function renderLocal(){
 function renderCartItems(){
     const basektItemRef = document.getElementById("basket");
     basektItemRef.innerHTML = "";
-    for(let i = 0; i < cartItemList.length; i++){
-        basektItemRef.innerHTML += cartTemplate(i);
+    for(let cartIndex = 0; cartIndex < cartItemList.length; cartIndex++){
+        basektItemRef.innerHTML += cartTemplate(cartIndex);
     }
     calculateTotal();
 }
@@ -79,9 +79,9 @@ function renderFinalCart(){
 // #endregion
 
 // #region Event Listener
-// #region Add Menu to Cart Function
-function addToCart(i, j){
-    const menuItem = menu[i].items[j];
+// #region Add Menu to Cart
+function addToCart(catIndex, menuIndex){
+    const menuItem = menu[catIndex].items[menuIndex];
     let existingItem = cartItemList.find(item => item.id === menuItem.id);
     if (existingItem) {
         existingItem.qty++;
@@ -108,6 +108,8 @@ function calculateTotal(){
 // #region Checkout Function > Clear Cart
 function checkoutEvent(){
     const dialogRef = document.getElementById("afterOrderMessage");
+    const bodyRef = document.querySelector("body");
+    bodyRef.classList.add("overflow-hidden");
     cartItemList = [];
     totalPrice = 0;
     subTotalPrice = 0;
@@ -118,23 +120,25 @@ function checkoutEvent(){
 // #endregion
 
 // #region Change CartItems-Events
-function removeItem(i) {
-    cartItemList.splice(i, 1);
+function removeItem(cartIndex) {
+    cartItemList.splice(cartIndex, 1);
     allRender();
-    cartItemCounter(i);
+    cartItemCounter(cartIndex);
     setLocalStorage();
 }
-function itemIncrease(i) {
-    cartItemList[i].qty++;
+
+function itemIncrease(cartIndex) {
+    cartItemList[cartIndex].qty++;
     allRender();
-    cartItemCounter(i);
+    cartItemCounter(cartIndex);
     setLocalStorage();
 };
-function itemDecrease(i) {
-    if (cartItemList[i].qty > 1) {
-        cartItemList[i].qty--;
+
+function itemDecrease(cartIndex) {
+    if (cartItemList[cartIndex].qty > 1) {
+        cartItemList[cartIndex].qty--;
     } else {
-        cartItemList.splice(i, 1);
+        cartItemList.splice(cartIndex, 1);
     }
     allRender();
     setLocalStorage();
@@ -145,8 +149,8 @@ function itemDecrease(i) {
 function cartItemCounter(){
     let counterRef = document.getElementById("cartItemCounter");
     let counterCartItems = 0;
-    for(let i = 0; i < cartItemList.length; i++){
-        counterCartItems += cartItemList[i].qty;
+    for(let cartIndex = 0; cartIndex < cartItemList.length; cartIndex++){
+        counterCartItems += cartItemList[cartIndex].qty;
     }
     counterRef.innerHTML = counterCartItems;
 }
@@ -165,8 +169,11 @@ function toggleMobileCart(){
 function closeDialog(){
     const closeDialogRef = document.getElementById("closeDialog");
     const dialogRef = document.getElementById("afterOrderMessage");
+    const bodyRef = document.querySelector("body");
+    
     closeDialogRef.addEventListener('click', (event) => {
         dialogRef.close();
+        bodyRef.classList.remove("overflow-hidden");
     });
 }
 // #endregion

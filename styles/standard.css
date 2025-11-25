@@ -99,3 +99,7 @@ button{
     border: 0;
     background: none;
 }
+
+.overflow-hidden{
+    overflow: hidden;
+}

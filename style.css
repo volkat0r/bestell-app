@@ -308,6 +308,11 @@ footer{
             width: 100%;
             cursor: pointer;
             transition: all .18s ease-out;
+            span{
+                font-size: 1.25rem;
+                font-weight: bold;
+                color: var(--white);
+            }
             &:hover{
                 background-color: var(--peach-orange-red);
             }
@@ -330,6 +335,10 @@ footer{
         #cartBottom{
             border-top: 0;
         }
+    }
+    #basket{
+        max-height: 70%;
+        overflow-y: scroll;
     }
 }
 /* #endregion */
@@ -498,6 +507,17 @@ footer{
             flex-direction: column;
         }
     }
+    #local{
+        flex-direction: column;
+        justify-content: end;
+        div.localLogo{
+            top: 0.5rem;
+        }
+        div.localInformation{
+            padding:1rem;
+            width: 100%;
+        }
+    }
     #content{
         width: 100%;
     }
@@ -519,28 +539,28 @@ footer{
 
 /* Small devices (mobile, 400px and down) */
 @media only screen and (max-width: 25rem) {
-    #local{
-        flex-direction: column;
-        justify-content: end;
-        div.localLogo{
-            top: 0.5rem;
-        }
-        div.localInformation{
-            padding:1rem;
-            width: 100%;
-        }
-    }
     #content{
         width: 100%;
     }
     #cart{
-        width: 95%;
-        right: -15rem;
+        width: 18.5rem;
+        right: -14.5rem;
+
+        *{
+            font-size: 0.9rem;
+        }
 
         article.cartItem{
             div.cartDetails{
                 div.qty{
                     gap: 0.5rem;
+                }
+            }
+        }
+        #cartBottom{
+            button#cartTotal{
+                span{
+                    display: block;
                 }
             }
         }
